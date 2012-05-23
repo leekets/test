@@ -10,12 +10,12 @@ if(x==null){
 	c=Number(a)+Number(1);
 	$(".f_cate").attr("href","tree"+pid+".html?id="+pid);
 	$(".f_up").prepend(cateJSON[b].category);
-	$(".f_up").attr("href","test.html?id="+cateJSON[b].ID);
+	$(".f_up").attr("href","index?id="+cateJSON[b].ID);
 	printSize(newsJSON, cateJSON[b].ID, function(data){$(".f_up span").html(data);});
 	$(".f_now").prepend(cateJSON[a].category);
-	$(".f_now").attr("href","test.html?id="+cateJSON[a].ID);
+	$(".f_now").attr("href","index?id="+cateJSON[a].ID);
 	printSize(newsJSON, cateJSON[a].ID, function(data){$(".f_now span").html(data);});
 	$(".f_down").prepend(cateJSON[c].category);
-	$(".f_down").attr("href","test.html?id="+cateJSON[c].ID);
+	$(".f_down").attr("href","index?id="+cateJSON[c].ID);
 	printSize(newsJSON, cateJSON[c].ID, function(data){$(".f_down span").html(data);});
 }

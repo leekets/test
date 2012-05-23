@@ -5,10 +5,10 @@
 	$JSON=json_encode($query->result());
 ?>
 	var pid="50";
-	var id="1"
+	var id="<?php echo $ID?>"
 	var title="word1";
 	var bothPage="html?title="+title+"&";
-	var jumpUrl="jump?id="+id+"&pid="+pid;
+	var jumpUrl="jump?id="+id;
 	var audioUrl="../"
     var comments = <?php echo "$JSON";?>;
 
