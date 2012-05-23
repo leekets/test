@@ -3,6 +3,7 @@ class Js extends CI_Controller{
 		
 	function __construct(){
 		parent::__construct();
+		$this->load->database();
 	}
 	
 	function test(){
@@ -15,5 +16,8 @@ class Js extends CI_Controller{
 
 	function testPHP(){
 		$this->load->view("js/t_js_test_php");
+	}
+	function jsData(){
+		$this->load->view('js/t_js_jsData');
 	}
 }

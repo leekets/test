@@ -16,7 +16,7 @@
 */
 //$config['base_url']	= 'http://localhost/ci_test073';
 //$config['base_url']	= 'http://192.168.1.2/ci_test073';
-$config['base_url']	= 'http://192.168.1.104/ci_test073';
+$config['base_url']	= 'http://192.168.1.104/git_test073';
 
 /*
 |--------------------------------------------------------------------------
