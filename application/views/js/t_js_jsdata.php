@@ -8,7 +8,7 @@
 	var id="1"
 	var title="word1";
 	var bothPage="html?title="+title+"&";
-	var jumpUrl="jump.html?id="+id+"&pid="+pid;
+	var jumpUrl="jump?id="+id+"&pid="+pid;
 	var audioUrl="../"
     var comments = <?php echo "$JSON";?>;
 

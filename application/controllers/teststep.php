@@ -20,4 +20,7 @@ class Teststep extends CI_Controller {
 //		$query=$this->db->query("select * from news_category where parentid=0");
 		$this->load->view('listview/t_listview_cate');
 	}
+	public function jump(){
+		$this->load->view("listview/t_listview_jump");
+	}
 }
