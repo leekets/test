@@ -1,0 +1,1 @@
+<a href="<?php echo site_url()."/printpage"?>" data-icon="gear" data-ajax="false" class="ui-btn-right">Export</a>
