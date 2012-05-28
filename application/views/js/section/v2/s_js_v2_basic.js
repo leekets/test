@@ -1,6 +1,14 @@
 
 	var t1= new Date().getTime(); //初始化时间
-	var dNum= 0;	//错误返回按钮延时时间；
+	var dNum= 6000;	//错误返回按钮延时时间；
+	var testSize=4;
+	if(testSize>0){
+		var comments2 = [];
+		for(i=0;i<=testSize-1;i++){
+			comments2.push(comments[i]);
+		}
+		comments = comments2;
+	}
 	
 	//数组指针初始化；
     var index = 0;

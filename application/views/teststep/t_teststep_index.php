@@ -43,7 +43,7 @@
         <!-- -->
         <div><a class="btn1 updatebtn e_element e_act1" href="javascript:void(0);" 1><strong><b class="btnQ">Submit</b></strong></a></div>
         <!-- 鎸夐敭锛氭挱锟�-->
-        <div><a class="none updatebtn e_element" onClick="document.getElementById('player').currentTime = 0;document.getElementById('player').play()" href="javascript:void(0);"><strong><b>Play</b></strong></a></div>
+        <div><a class="none updatebtn e_element e_act1" onClick="document.getElementById('player').currentTime = 0;document.getElementById('player').play()" href="javascript:void(0);"><strong><b>Play</b></strong></a></div>
         
         <!-- -->
         <div><a class="btn2 updatebtn e_element" href="javascript:void(0);" 2><strong><b>Submit</b></strong></a></div>

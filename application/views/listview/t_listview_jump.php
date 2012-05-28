@@ -12,6 +12,16 @@
 <title>TEST Complete</title>
 </head>
 <body>
+<?php 
+	$ID=$this->input->get("id");
+	$Error=$this->input->get("error");
+	$data=array(
+		'temp'=>$Error
+	);
+	$this->db->where("ID",$ID);
+	$this->db->update('news_category',$data);
+	
+?>
 <div class="navbar" >
     <div class="navbar-inner">
         <div class="container">

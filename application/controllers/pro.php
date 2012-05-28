@@ -18,6 +18,10 @@ class pro extends CI_Controller{
 		$this->load->view("pro/t_pro_autoCate");
 	}
 	
+	function elist(){
+		$this->load->view("pro/t_pro_elist");
+	}
+	
 	function tts(){
 		
 		$id=$this->input->get("id");

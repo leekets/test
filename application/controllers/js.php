@@ -4,6 +4,7 @@ class Js extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->database();
+		$this->load->helper('url');
 	}
 	
 	function test(){
@@ -19,5 +20,8 @@ class Js extends CI_Controller{
 	}
 	function jsData(){
 		$this->load->view('js/t_js_jsData');
+	}
+	function testSelect(){
+		$this->load->view('js/t_js_testSelect');
 	}
 }
