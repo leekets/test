@@ -11,10 +11,7 @@
 </head>
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
 <div class="control-group">
-	<?php
-		$id=$this->input->get("id");
-		$category=$this->input->get("category");
-	 ?>
+
     <form class="well form-inline" action="" method="get">
     	<input type="text" class="input-small" name="b" value="<?php echo $this->input->get("b")?>">
         <input type="text" class="input-small" name="size" value="7">
@@ -24,9 +21,6 @@
         <button type="submit" class="btn">Submit</button>
     </form>
     <?php
-		$act=$this->input->get("act");
-		$num=$this->input->get("num");
-		
 		if($act=="autoSort"){
 			$b=$this->input->get("b");
 			$size=$this->input->get("size");

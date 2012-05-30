@@ -10,23 +10,6 @@ class PrintPage extends CI_controller{
 		$this->load->view("printPage/t_printPage_index.php");
 	}
 	
-	function sort(){
-		$b=766;
-		$size=8;
-		$totle=30;
-		for($i=0;$i<$totle;$i++){
-			for($i2=0;$i2<$size;$i2++){
-				echo $b."<br>";
-			}
-			$b++;
-			//echo $i+1.";".($b++)."<br/>";
-		}
-	}
-	
-	function sort2(){
-		$this->load->view("printPage/t_printPage_sort2.php");
-	}
-		
 	function word(){
 		$this->load->view("printPage/t_printPage_word.php");
 	}

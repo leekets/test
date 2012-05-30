@@ -6,16 +6,61 @@ class pro extends CI_Controller{
 		$this->load->database();
 		$this->load->helper("url");
 		$this->load->helper("form");
-
-
 	}
 	
 	function index(){
 		$this->load->view("pro/t_pro_index.php");
 	}
 	
+	function autoSort(){
+		$id=$this->input->get("id");
+		$act=$this->input->get("act");
+		
+		if($act=="autoSort"){
+			$b=$this->input->get("b");
+			$size=$this->input->get("size");
+			$total=$this->input->get("total");
+			for($i=0; $i<$total; $i++){
+				for($i2=0;$i2<$size;$i2++){
+					echo $b."<br>";
+				}
+				$b++;
+			}
+		}else{
+			$data=array(
+				'id'=>$id
+			);
+			$this->load->view("pro/t_pro_autoSort",$data);
+		}
+	}
+	
 	function autoCate(){
-		$this->load->view("pro/t_pro_autoCate");
+		$id=$this->input->get("id");
+		$act=$this->input->get("act");
+		$category=$this->input->get("category");
+		if($act=="autoCate"){
+			$num=$this->input->get("num");
+			for($i=1;$i<$num+1;$i++){
+				$display="";
+				if($act=="autoCate"){
+					$data=array(
+						'category'=>$category."-".$i,
+						'parentId'=>$id,
+						'sortNum'=>$i,
+						'type'=>"列表页"
+					);
+					$this->db->insert("news_category",$data);
+				}
+			}
+		}else{
+			$display="none";
+		}
+		$data=array(
+			'id'=>$id,
+			'category'=>$category,
+			'display'=>$display
+		);
+		$this->load->view("pro/t_pro_autoCate",$data);
 	}
 	
 	function elist(){

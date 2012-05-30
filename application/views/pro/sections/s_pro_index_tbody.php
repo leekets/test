@@ -46,6 +46,7 @@
         ?>
         <a href="http://localhost/test073/php-TTS/index_arr.php?arr=<?php echo $tts?>">tts</a> 
         <a href="<?php echo site_url()?>/pro/elist?id=<?php echo $row->ID; ?>">list</a>
+        <a href="<?php echo site_url()?>/pro/autoSort?id=<?php echo $row->ID; ?>" target="_blank">sort</a>
         </td>
 </tr>
 <?php 
