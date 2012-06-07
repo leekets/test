@@ -19,11 +19,11 @@
 	}
 	
 	if($page=="category"){
-		printPage($tree,"index","");
+//		printPage($tree,"index","");
 		//printPage($tree,"jump","");
 		printPage($tree,"data","");
 		//printPage($tree,"test","");
-		printPage($tree,"tree",$ID);
+//		printPage($tree,"tree",$ID);
 		printPage($tree,"news",$ID);
 		printPage($tree,"cate",$ID);
 	}
@@ -61,6 +61,11 @@
 			php2html(site_url()."/printPage/test2",$tree."test.html","/www/log/log.txt");
 			echoList("simpleTest.html");
 		}
+
+	}
+	if($page=="testSelect"){
+		php2html(site_url()."/js/testSelect",$tree."js/test_select.txt","/www/log/log.txt");
+		echoList("test_select.txt");
 	}
 	if($page=="abc"){
 		ob_flush();

@@ -15,19 +15,18 @@ function Arrsplit(s) {
     $(".f_slipt").hide();
 }
 
-//		function sen1(a){
-//			
-//
-//	for (x in sen){
-//		if(sen[x].en.toLowerCase().indexOf(a.toLowerCase())>=0){
-//			$("b.en").html(sen[x].en);
-//			$("b.cn").html(sen[x].cn);
-//			break;
-//		}
-//	}
-//
-//
-//		}
+function sen1(a) {
+    for (x in senJSON) {
+        if (senJSON[x].en != null) {
+            if (senJSON[x].en.toLowerCase().indexOf(a.toLowerCase()) >= 0) {
+            	$(".f_en").html(senJSON[x].en.replace(a,'<span class="font_red">'+a+'</span>'));
+                $(".f_cn").html(senJSON[x].cn);
+                break;
+            }
+        }
+    }
+}
+
 function play3(i) {
 
     if (i == 1) {

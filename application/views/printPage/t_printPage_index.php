@@ -13,7 +13,7 @@
     <div class="control-group">
         <ul class="nav nav-tabs nav-stacked">
             <li>
-                <a>test_select</a>
+                <a href="<?=site_url()?>/printpage/output?page=testSelect">testSelect</a>
             </li>
         </ul>
     </div>

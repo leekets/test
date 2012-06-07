@@ -8,10 +8,6 @@ $(function() {
 
 	var t1= new Date().getTime(); //初始化时间
     var index = 0;	//数组指针初始化；
-	//del:120528
-//	var index_ = "";
-//	var errors_1st = [];
-//	var round=1;
 	var getError="";
 	var errors = [];	//错误返回按钮延时时间；
 	var eNum = 0;	//错误计数初始化；
@@ -71,7 +67,9 @@ $(function() {
 			$(".e_element").hide();				//隐藏所有元素；
 			$(".en").html("");					//初始化英文部分；
 			$(".cn").html("");					//初始化中文部分；
-//			sen1(comments[index]['a']);			//调用句库函数；
+			$(".f_en").html("");				//例句初始化
+			$(".f_cn").html("");				//例句初始化
+			sen1(comments[index]['subTitle']);	//调用句库函数；
 			$("span.sp1").html(index+1);		//调整当前数值；
 			$("span.sp2").html(comments.length);//显示总数；
 
