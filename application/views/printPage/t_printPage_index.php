@@ -15,6 +15,9 @@
             <li>
                 <a href="<?=site_url()?>/printpage/output?page=testSelect">testSelect</a>
             </li>
+             <li>
+                <a href="<?=site_url()?>/printpage/output?page=testArr">testArr</a>
+            </li>
         </ul>
     </div>
 </div>

@@ -111,7 +111,7 @@ if (index<comments.length) {					//如果指针在范围内；
 			}else{
 				t2=new Date().getTime()-t1;
 				alert(MillisecondToDate(t2));	
-				window.location=jumpUrl+"&title="+MillisecondToDate(t2)+"&error="+getError;
+				window.location=jumpUrl;
 				//window.location="index."+bothPage+"#pid"+pid;
 			}
 		}

@@ -26,10 +26,10 @@
 <tr>
     <td><input type="checkbox" /></td>
     <td><a href="<?php echo $CategoryLink?>"><?php echo $row->category;?></a></td>
-    <td><!-- Icons --> 
-        <!-- Edit --> 
-        <a href="<?php echo site_url() ?>/pro/cateEdit?id=<?php echo $row->ID; ?>" title="Edit"><img src="<?php echo base_url() ?>js/resources/images/icons/pencil.png" alt="Edit" /></a> 
-        <!-- Del --> 
+    <td><!-- Icons -->
+        <!-- Edit -->
+        <a href="<?php echo site_url() ?>/pro/cateEdit?id=<?php echo $row->ID; ?>" title="Edit"><img src="<?php echo base_url() ?>js/resources/images/icons/pencil.png" alt="Edit" /></a>
+        <!-- Del -->
         <a href="javascript:void(0)" class="f_del"url="<?php echo site_url() ?>/pro/cate_sql?id=<?php echo $row->ID;?>&act=del&pid=<?php echo $row->parentId;?>" title="Delete"><img src="<?php echo base_url() ?>js/resources/images/icons/cross.png" alt="Delete" /></a>
         <?php 
         	$sql2="select * from news where categoryid=$row->ID order by id asc";
@@ -44,10 +44,10 @@
         		}
         	endforeach;
         ?>
-        <a href="http://localhost/test073/php-TTS/index_arr.php?arr=<?php echo $tts?>">tts</a> 
-        <a href="<?php echo site_url()?>/pro/elist?id=<?php echo $row->ID; ?>">list</a>
-        <a href="<?php echo site_url()?>/pro/autoSort?id=<?php echo $row->ID; ?>" target="_blank">sort</a>
-        </td>
+    </td>
+    <td><a href="http://localhost/test073/php-TTS/index_arr.php?arr=<?php echo $tts?>">tts</a></td>
+    <td><a href="<?php echo site_url()?>/pro/elist?id=<?php echo $row->ID; ?>">list</a></td>
+    <td><a href="<?php echo site_url()?>/pro/autoSort?id=<?php echo $row->ID; ?>" target="_blank">sort</a></td>
 </tr>
 <?php 
 	endforeach;

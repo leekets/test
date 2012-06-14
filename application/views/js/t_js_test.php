@@ -1,3 +1,5 @@
+
+
 $(function() {
 
     var t1 = new Date().getTime(); // 初始化时间

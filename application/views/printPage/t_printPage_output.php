@@ -67,6 +67,10 @@
 		php2html(site_url()."/js/testSelect",$tree."js/test_select.txt","/www/log/log.txt");
 		echoList("test_select.txt");
 	}
+	if($page=="testArr"){
+		php2html(site_url()."/js/testArr",$tree."js/test_arr.txt","/www/log/log.txt");
+		echoList("test_arr.txt");
+	}
 	if($page=="abc"){
 		ob_flush();
 		flush();

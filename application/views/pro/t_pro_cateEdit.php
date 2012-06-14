@@ -1,49 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Simpla Admin</title>
-<?php include "sections/s_pro_head.php"?>
-
+<title>Test Function Pro</title>
+<?php include "sections/s_pro_head_v2.php"?>
 </head>
-
-<body page="category_list">
-<div id="body-wrapper"> <!-- Wrapper for the radial gradient background --> 
-    <?php include "sections/s_pro_sidebar.php"?>
-    <!-- End #sidebar -->
-    
-    <div id="main-content"> <!-- Main Content Section with everything -->
-        
-        <div class="content-box"><!-- Start Content Box -->
-            
-            <div class="content-box-header">
-                <h3>Content box</h3>
-                <div class="clear"></div>
-            </div>
-            <!-- End .content-box-header -->
-            
-            <div class="content-box-content">
-                <div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab --> 
-                    <?php include "sections/s_pro_cateform.php"?>
-                </div>
-                <!-- End #tab2 --> 
-                
-            </div>
-            <!-- End .content-box-content --> 
-            
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+<?php include "sections/s_pro_common_topnavbar.php"?>
+<div class="container">
+    <form action="<?php echo site_url()?>/pro/cate_sql?id=<?php echo $row->ID;?>&pid=<?php echo $row->parentId;?>&act=update" method="post">
+        <fieldset>
+        <legend>Category Edit</legend>
+        <div class="control-group">
+            <label class="control-label" for="category">
+                Category
+            </label>
+            <input name="category" type="text" class="text-input large-input" value="<?php echo $row->category;?>" />
         </div>
-        <!-- End .content-box -->
-        
-        <div class="clear"></div>
-        <?php include ("sections/s_pro_footer.php")?>
-        <!-- End #footer --> 
-        
-    </div>
-    <!-- End #main-content --> 
-    
+        <div class="control-group">
+            <label class="control-label" for="type">
+                Type
+            </label>
+            <input name="type" type="text" class="text-input large-input" id="type" value="<?php echo $row->type;?>" />
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="template">
+                Template
+            </label>
+            <input name="template" type="text" class="text-input large-input" id="template" value="<?php echo $row->template;?>" />
+        </div>
+        <div class="form-actions">
+            <input name="id" type="hidden" value="<?php echo $row->ID;?>" />
+            <input name="parentid" type="hidden" value="<?php echo $row->parentId;?>" />
+            <input class="btn btn-primary" type="submit" value="Submit" />
+        </div>
+        </fieldset>
+        <!-- End .clear -->
+    </form>
 </div>
 </body>
-
 <!-- Download From www.exet.tk-->
 </html>

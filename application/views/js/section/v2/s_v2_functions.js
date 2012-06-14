@@ -103,3 +103,58 @@ function print_array(arr) {
     t = t + ')';
     return t;;
 }
+
+function f_control_num(num,comments){
+	if(num>0){
+		var comments2 = [];
+		for(i=0;i<=testSize-1;i++){
+			comments2.push(comments[i]);
+		}
+		comments = comments2;
+	}
+	return comments;
+}
+
+function f_control_repeat(num_base,num_max,index){
+	if(index<=num_max){
+		var r_n = num_base;
+		var r_2 = eval((parseInt((index-1)/5)+1)*r_n)
+		if(index <= r_2*1 && eNum==eval(r_2*0.4+1)){
+			index = 0;
+		  alert("Repeat");
+		  errors = [];
+		  eNum = 0;
+		  $("span.sp3").html(eNum);
+		  act();
+		}		
+	}
+	return index;
+}
+
+function f_select(org_comments){
+	var arrSelect=[];	//定义select数组；
+	for(var i=0, len=org_comments.length; i<len; i++){	//取出当前指针的值。（同时取出与当前指正重复的值。）
+		if(org_comments[i]['subTitle']!=comments[index]['subTitle']){
+			arrSelect.push(org_comments[i]);
+		}	
+	}
+	arrSelect=randomOrder(arrSelect);	//乱序数组
+	
+
+	var arrSelect2 = [];	//定时数组2
+
+	//select num
+	var s_num=8;
+	for(i=0;i<=s_num;i++){	//获得目标数组-1的新数组
+		arrSelect2.push(arrSelect[i]);
+	}
+	arrSelect2.push(comments[index]);	//新数组添加当前指针的值。
+	arrSelect = randomOrder(arrSelect2);	//乱序数组。
+
+	$(".f_btnSelect").hide();
+	for(i=0;i<=s_num+1;i++){
+		$(".f_btnNo"+(i+1)).html(arrSelect[i].subject); //赋值
+		$(".f_btnNo"+(i+1)).attr("f_a",arrSelect[i].subTitle);
+		$(".f_btnNo"+(i+1)).show();
+	}	
+}

@@ -11,8 +11,10 @@
 //		$("div.lib").hide();
 //		$("a.btn1").hide();
 		$("a.btnP").show();
-		audio=document.getElementById('player');
-		play3(1);
+		if(c_audio==1){
+			audio=document.getElementById('player');
+			play3(1);
+		}
 		//audio.play();
 		$(".e_act3").show();				//显示：act3元素；
 		$("a.btn2").hide().delay(dNum).fadeIn();

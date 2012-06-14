@@ -12,6 +12,10 @@ class pro extends CI_Controller{
 		$this->load->view("pro/t_pro_index.php");
 	}
 	
+	function index_v2(){
+		$this->load->view("pro/t_pro_index_v2");
+	}
+	
 	function autoSort(){
 		$id=$this->input->get("id");
 		$act=$this->input->get("act");

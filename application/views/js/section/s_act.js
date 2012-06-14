@@ -34,7 +34,7 @@
             btnQ = "Submit";
 
             $("audio").attr({
-                "src": audioUrl + "audio/" + comments[index]['a'] + ".mp3"
+                "src": audioUrl + "../audio/" + comments[index]['subTitle'] + ".mp3"
             });
             audio = document.getElementById('player') // 初始化音频路径
             $("b.q_en").html(q_en); // 问题区赋值
