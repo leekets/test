@@ -10,21 +10,31 @@ if (url.indexOf("?") != -1) {
 
 
 pid=theRequest["id"];
+var arr;
 arr=theRequest["arr"];
-arr=arr.split(",");
 //alert(arr.length);
 //pid=299;
 var bothPage="asp";
 var jumpUrl="jump.html?id="+pid;
 var audioUrl="";
 var comments=[];
-for(var iArr=0, lenArr=arr.length; iArr<lenArr; iArr++){
+if (typeof(arr)!="undefined" && arr!=""){
+	arr=arr.split(",");
+	for(var iArr=0, lenArr=arr.length; iArr<lenArr; iArr++){
+		for(var i=0, len=newsJSON.length; i<len; i++){
+			if(newsJSON[i].id==arr[iArr]){
+				comments.push(newsJSON[i]);
+			}	
+		}
+	}
+}else{
 	for(var i=0, len=newsJSON.length; i<len; i++){
-		if(newsJSON[i].id==arr[iArr]){
+		if(newsJSON[i].categoryId==pid){
 			comments.push(newsJSON[i]);
 		}	
 	}
 }
+comments=randomOrder(comments);
 
 $(function() {
 
@@ -51,7 +61,6 @@ $(function() {
     }
 
     act(); // 进入函数act
-    <?php include("section/v2/s_v2_act.php"); ?>
 	<?php include("section/v2/s_v2_act.php"); ?>
 	<?php include("section/v2/s_v2_act2.js"); ?>
 	<?php include("section/v2/s_v2_act3.js"); ?>
@@ -65,3 +74,4 @@ $(function() {
 })
 <?php include("section/s_play.js"); ?>
 <?php if($a=="123"){?></script><?php }?>
+<?php include("section/v2/s_v2_functions.js"); ?>

@@ -1,6 +1,6 @@
 
 function act() {
-		//index=f_control_repeat(5,15,index);
+		index=f_control_repeat(5,15,index);
 
 		if (index<comments.length) {			//如果指针在范围内；
 			$(".e_element").hide();				//隐藏所有元素；

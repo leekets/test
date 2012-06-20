@@ -95,7 +95,7 @@ if (index<comments.length) {					//如果指针在范围内；
 			$(".btnQ").html(btnQ);
 			$(".e_act1").show();				//显示：act1元素；
 
-			play3(1);
+//			play3(1);
 			$("textarea.b")[0].focus();			//输入框焦点
 			
             index++;							//指针递进

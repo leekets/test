@@ -1,5 +1,6 @@
  
 $(".f_btnSelect").click(function() {
+		$(".f_1st").hide();
 		$(".f_slipt").hide();
 		//alert($(this).attr("f_a"));
 		if($(this).attr("f_a")==$(".f_subTitle").html()){
