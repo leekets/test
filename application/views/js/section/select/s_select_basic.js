@@ -1,7 +1,7 @@
 
 	//错误返回按钮延时时间；
 	var dNum= 0;	
-	var testSize=15;
+	var testSize=20;
 	var c_audio=1;
 	var c_jump=1;
 
