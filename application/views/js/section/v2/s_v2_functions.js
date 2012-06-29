@@ -97,12 +97,7 @@ function f_control_repeat(num_base,num_max,index){
 		var r_n = num_base;
 		var r_2 = eval((parseInt((index-1)/5)+1)*r_n)
 		if(index <= r_2*1 && eNum==eval(r_2*0.4+1)){
-			index = 0;
-		  alert("Repeat");
-		  errors = [];
-		  eNum = 0;
-		  $("span.sp3").html(eNum);
-		  act();
+			index = -1;
 		}		
 	}
 	return index;
@@ -138,3 +133,4 @@ function f_select(org_comments,s_num,f_chrome){
 		$(".f_btnNo"+(i+1)).show();
 	}	
 }
+
