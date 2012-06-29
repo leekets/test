@@ -27,4 +27,7 @@ class Js extends CI_Controller{
 	function testSelect(){
 		$this->load->view('js/t_js_testSelect');
 	}
+	function common(){
+		$this->load->view('js/t_js_common');
+	}
 }

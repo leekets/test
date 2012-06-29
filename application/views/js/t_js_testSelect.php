@@ -1,5 +1,27 @@
 	<?php $a="1"; if($a=="123"){?> <script> <?php }?>
+	//判断浏览器
+	if (window.navigator.userAgent.indexOf('Chrome') > -1) {
+		var f_chrome=1;
+	    //alert('Chrome!');
+	} else {
+		var f_chrome=0;
+		//alert('Not Chrome');
+	}
+
 	
+	//合并通用js	
+	var commentsAll= newsJSON
+	
+	pid=getValue("id");
+	var bothPage="asp";
+	var jumpUrl="jump.html?id="+pid;
+	var audioUrl="";
+	var comments=[];
+	for(var i=0, len=commentsAll.length; i<len; i++){
+		if(commentsAll[i].categoryId==pid){
+			comments.push(commentsAll[i]);
+		}	
+	}	
 $(function() {
 	$(".f_jumpTest").attr("href","testArr.html?id="+pid);
 	<?php include("section/select/s_select_basic.js"); ?>
@@ -17,7 +39,7 @@ $(function() {
 	<?php include("section/v2/s_v2_f_slipt.js"); ?>
 	<?php include("section/v2/s_v2_functions.js"); ?>
 })
-	
+
 	<?php 
 	if($a=="123"){?>
 	</script>
