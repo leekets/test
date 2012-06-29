@@ -1,6 +1,19 @@
 	<?php $a="1"; if($a=="123"){?> <script> <?php }?>
-	//判断浏览器
+
 	
+	//合并通用js	
+	var commentsAll= newsJSON
+	
+	pid=getValue("id");
+	var bothPage="asp";
+	var jumpUrl="jump.html?id="+pid;
+	var audioUrl="";
+	var comments=[];
+	for(var i=0, len=commentsAll.length; i<len; i++){
+		if(commentsAll[i].categoryId==pid){
+			comments.push(commentsAll[i]);
+		}	
+	}	
 $(function() {
 
 	if (window.navigator.userAgent.indexOf('Chrome') > -1) {
