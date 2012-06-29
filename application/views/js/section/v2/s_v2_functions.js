@@ -27,30 +27,7 @@ function sen1(a) {
     }
 }
 
-function play3(i) {
 
-    if (i == 1) {
-        audio.currectTime = 0;
-        audio.play();
-        i = i + 1;
-        setTimeout("play3(2)", 2000);
-    } else if (i == 2) {
-        audio.currectTime = 0;
-        audio.play();
-        i = i + 1;
-        setTimeout("play3(3)", 2000);
-    } else if (i == 3) {
-        audio.currectTime = 0;
-        audio.play();
-        i = i + 1;
-        setTimeout("play3(4)", 2000);
-    } else if (i == 4) {
-        audio.currectTime = 0;
-        audio.play();
-        i = i + 1;
-    }
-
-}
 
 //计算总时间
 function MillisecondToDate(msd) {
@@ -131,7 +108,7 @@ function f_control_repeat(num_base,num_max,index){
 	return index;
 }
 
-function f_select(org_comments){
+function f_select(org_comments,s_num,f_chrome){
 	var arrSelect=[];	//定义select数组；
 	for(var i=0, len=org_comments.length; i<len; i++){	//取出当前指针的值。（同时取出与当前指正重复的值。）
 		if(org_comments[i]['subTitle']!=comments[index]['subTitle']){
@@ -144,7 +121,7 @@ function f_select(org_comments){
 	var arrSelect2 = [];	//定时数组2
 
 	//select num
-	var s_num=8;
+	var s_num=s_num-2;
 	for(i=0;i<=s_num;i++){	//获得目标数组-1的新数组
 		arrSelect2.push(arrSelect[i]);
 	}
@@ -155,6 +132,10 @@ function f_select(org_comments){
 	for(i=0;i<=s_num+1;i++){
 		$(".f_btnNo"+(i+1)).html(arrSelect[i].subject); //赋值
 		$(".f_btnNo"+(i+1)).attr("f_a",arrSelect[i].subTitle);
+		if(f_chrome==1){
+			$(".f_btnNo" + (i + 1)).prepend("<span class='label' style='width:130px !important;'>[" + $(".f_btnNo" + (i + 1)).attr("id") + "]</span>&nbsp;");
+		}
 		$(".f_btnNo"+(i+1)).show();
 	}	
 }
+

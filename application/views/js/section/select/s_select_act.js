@@ -26,14 +26,14 @@ function act() {
 			$(".sen .cn").html(comments[index]['cn']);//答案区赋值
 			$(".btnQ").html(btnQ);
 			$(".e_act1").show();				//显示：act1元素；
-			f_select(org_comments);
+			f_select(org_comments,c_select,f_chrome);
 			if(c_audio==1){
 				s_audio="";
 				s_audio=comments[index]['subTitle']+".mp3";
 				$("audio").attr({"src": ""});
 				$("audio").attr({"src": "../audio/"+s_audio});
 				audio=document.getElementById('player') //初始化音频路径
-				play3(1);
+				play(0,1);
 			}			
 //			$("textarea.b")[0].focus();			//输入框焦点
 			

@@ -1,9 +1,10 @@
 
 	//错误返回按钮延时时间；
-	var dNum= 0;	
-	var testSize=20;
+	var dNum= 4000;	
+	var testSize=15;
 	var c_audio=1;
 	var c_jump=1;
+	var c_select=6;
 
 	var t1= new Date().getTime(); //初始化时间
     var index = 0;	//数组指针初始化；

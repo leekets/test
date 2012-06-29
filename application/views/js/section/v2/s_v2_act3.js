@@ -12,8 +12,8 @@
 //		$("a.btn1").hide();
 		$("a.btnP").show();
 		if(c_audio==1){
-			audio=document.getElementById('player');
-			play3(1);
+			audio=document.getElementById('player');			
+			play(0,3);	//错误后重复3次
 		}
 		//audio.play();
 		$(".e_act3").show();				//显示：act3元素；
