@@ -127,6 +127,8 @@ function f_select(org_comments,s_num,f_chrome){
 	for(i=0;i<=s_num+1;i++){
 		$(".f_btnNo"+(i+1)).html(arrSelect[i].subject); //赋值
 		$(".f_btnNo"+(i+1)).attr("f_a",arrSelect[i].subTitle);
+		$(".f_btnNo"+(i+1)).attr("f_id",arrSelect[i].id);
+		$(".f_btnNo" + (i + 1)).prepend("<span class=\"label label-warning none\">"+arrSelect[i].subTitle+"</span>&nbsp;");
 		if(f_chrome==1){
 			$(".f_btnNo" + (i + 1)).prepend("<span class='label' style='width:130px !important;'>[" + $(".f_btnNo" + (i + 1)).attr("id") + "]</span>&nbsp;");
 		}

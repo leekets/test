@@ -36,7 +36,7 @@
         	$query2=$this->db->query($sql2);
         	$tts="";
         	foreach($query2->result() as $row2):
-        		$en=$row2->subTitle;
+        		$en=$row2->subject;
         		if($tts==""){
 					$tts=$en;        			
         		}else{

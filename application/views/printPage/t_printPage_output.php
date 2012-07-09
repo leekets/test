@@ -11,6 +11,10 @@
 	if($page=="jsCommon" || $page=="index" || $page=="jump" || $page=="testjs" || $page=="testSelect" || $page=="testArr"){
 		printPage($tree,$page,"");
 	}
+	if($page="category"){
+		printPage($tree,"news","");
+		printPage($tree,"cate","");
+	}
 	
 	function printPage($tree,$page,$ID){
 		if($page=="news"){
