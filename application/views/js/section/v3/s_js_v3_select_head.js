@@ -25,13 +25,31 @@
 			}
 		}
 	}	
+	
+	
 	var commentsAll= newsJSON;	
 
 	pid=getValue("id");	//git id
 	if(pid==undefined){	//if id="" then jump to index
 		window.location="index.html";
 	}
+	
+	
+	$(".f_getId").attr("id",pid);
+	$(".f_jumpArr2").click(function(){
+		window.location=$(this).attr("_href")+"&id="+$(this).attr("id");
+	});
+	
 	$("title").html(cateJSON[usual_search(cateJSON,x)].category);	//change title
+	
+	var arrPhrase=[1101,1102,1103,1104,1105,1106,1107,1108,1109,1110,1122,1123,1124,1125,1126,1127,1128,1129,1130,1131];
+	for(var i=0; i<arrPhrase.length;i++){
+		if(arrPhrase[i]==pid){
+			var pagePhrase=true;
+			$("title").append(" [Phrase Mode]");
+		}
+	}
+	
 	var bothPage="asp";		//Leeke-Todo:Ready delete
 	var jumpUrl="jump.html?id="+pid;	//Leeke-Todo:Ready delete
 	var audioUrl="";
@@ -41,5 +59,12 @@
 			comments.push(commentsAll[i]);
 		}	
 	}
-
+	if(pagePhrase==true){
+		var commentsTemp=[];
+		for(var i=0; i<25; i++){
+			commentsTemp.push(comments[i]);
+		}
+		comments=commentsTemp;
+	};
+	//alert(print_array(comments));
 	$(".f_jumpTest").attr("href","testArr.html?id="+pid); //page jump

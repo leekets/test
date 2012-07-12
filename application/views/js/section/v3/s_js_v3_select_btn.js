@@ -7,7 +7,6 @@
 			$(".f_1st").hide();
 			$(".f_slipt").hide();
 			if($(this).attr("f_a")==$(".f_subTitle").html()){
-				
 				act();
 	        } else {
 				//act3();
