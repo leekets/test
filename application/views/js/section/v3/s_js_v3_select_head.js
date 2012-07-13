@@ -24,12 +24,27 @@
 				}
 			}
 		}
-	}	
+	}
+	
+	pid=getValue("id");	//git id
+	idKey=usual_search(cateJSON,pid);
+	var arrInput=[1198];
+	for(var i=0; i<arrInput.length; i++){
+		if(arrInput[i]==cateJSON[idKey].parentId){
+			window.location="testArr.html?c_random=0&testSize=0&id="+pid;
+		}
+	}
+	var arrInputR=[1094];
+	for(var i=0; i<arrInput.length; i++){
+		if(arrInputR[i]==cateJSON[idKey].parentId){
+			window.location="testArr.html?testSize=0&id="+pid;
+		}
+	}
 	
 	
 	var commentsAll= newsJSON;	
 
-	pid=getValue("id");	//git id
+	
 	if(pid==undefined){	//if id="" then jump to index
 		window.location="index.html";
 	}
@@ -49,6 +64,7 @@
 			$("title").append(" [Phrase Mode]");
 		}
 	}
+
 	
 	var bothPage="asp";		//Leeke-Todo:Ready delete
 	var jumpUrl="jump.html?id="+pid;	//Leeke-Todo:Ready delete
@@ -59,6 +75,8 @@
 			comments.push(commentsAll[i]);
 		}	
 	}
+	
+	//Todo: Be Function
 	if(pagePhrase==true){
 		var commentsTemp=[];
 		for(var i=0; i<25; i++){

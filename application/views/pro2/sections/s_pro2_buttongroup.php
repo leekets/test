@@ -1,0 +1,1 @@
+ <a class="btn" href="<?php echo site_url("/pro2/sort?id=$ID");?>">Sort</a> <a class="btn">Back</a> <a class="btn">Auto Tree</a> 

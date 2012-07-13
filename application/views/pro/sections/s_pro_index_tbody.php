@@ -30,7 +30,7 @@
         <!-- Edit -->
         <a href="<?php echo site_url() ?>/pro/cateEdit?id=<?php echo $row->ID; ?>" title="Edit"><img src="<?php echo base_url() ?>js/resources/images/icons/pencil.png" alt="Edit" /></a>
         <!-- Del -->
-        <a href="javascript:void(0)" class="f_del"url="<?php echo site_url() ?>/pro/cate_sql?id=<?php echo $row->ID;?>&act=del&pid=<?php echo $row->parentId;?>" title="Delete"><img src="<?php echo base_url() ?>js/resources/images/icons/cross.png" alt="Delete" /></a>
+        <a href="javascript:void(0)" class="f_del" url="<?php echo site_url() ?>/pro/cate_sql?id=<?php echo $row->ID;?>&act=del&pid=<?php echo $row->parentId;?>" title="Delete"><img src="<?php echo base_url() ?>js/resources/images/icons/cross.png" alt="Delete" /></a>
         <?php 
         	$sql2="select * from news where categoryid=$row->ID order by id asc";
         	$query2=$this->db->query($sql2);
