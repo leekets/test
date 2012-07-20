@@ -38,7 +38,6 @@
 							        <td>
 							        	<input name="category" type="text" class="text-input small-input" id="category" value="" />
 							        </td>
-							        
 							        <td>
 							        	<?php 
 							        	if($ID==0){

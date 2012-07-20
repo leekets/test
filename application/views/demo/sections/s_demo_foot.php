@@ -19,14 +19,3 @@
 <script src="<?php echo base_url()."js/"?>ui/jquery.ui.sortable.js"></script>
 <script src="<?php echo base_url();?>js/jquery.tmpl.js"></script>
 <script src="<?php echo base_url();?>js/knockout-2.1.0.js"></script>
-<script>
-$(function(){
-	$(".f_del").click(function(){
-		$url=$(this).attr("url");	
-//		alert($url);
-		if(confirm('Are you sure delete?')){
-			location.href=$url;	
-		}
-	});
-});
-</script>

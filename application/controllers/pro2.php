@@ -13,8 +13,108 @@ class pro2 extends CI_Controller{
 		if($ID==""){
 			$ID=0;	
 		}
-		$sql="select * from news_category where parentid=$ID order by sortnum";
-		$this->load->view("pro2/t_pro2_index.php",array('row'=>$this->db->query($sql),'ID'=>$ID));
+		redirect(site_url()."/pro2/cate_sql?id=$ID&act=list");
+
+	}
+	function cateEdit(){
+		//必要参数
+		$id=$this->input->get("id");
+		redirect(site_url()."/pro2/cate_sql?id=$id&act=edit");
+	}
+	
+	function cate_sql(){
+		//必要参数
+		$id=$this->input->get("id");
+		$act=$this->input->get("act");
+		$pid=$this->input->get("pid");
+		
+		//初始化参数
+		if($id==""){$id=0;}
+		if($act==""){$act="list";}
+		
+		//数组
+		$data=array(
+			'category'=>$this->input->post('category'),
+			'parentid'=>$this->input->post('parentid'),
+			'template'=>$this->input->post('template'),
+			'type'=>$this->input->post('type')
+		);
+		if($act=="list"){
+			$ID=$id;
+			if($ID==0){ $type="分类";}else{$type="列表页";}
+			$sql="select * from news_category where parentid=$ID order by sortnum";
+			$this->load->view("pro2/t_pro2_index.php",array('row'=>$this->db->query($sql),'ID'=>$ID,'type'=>$type));
+		}
+		if($act=="edit"){
+			$sql="select * from news_category where id=".$id;
+			$this->load->view("pro2/t_pro2_cateEdit.php",array('row'=>$this->db->query($sql)->row()));	
+		}
+		if($act=="insert"){
+			$this->db->insert('news_category',$data);	
+			redirect(site_url()."/pro2?id=".$pid);
+		}
+		if($act=="update"){
+			$this->db->where("ID",$id);
+			$this->db->update('news_category',$data);
+			redirect(site_url()."/pro2?id=".$pid);
+		}
+		if($act=="del"){
+			$this->db->where("ID",$id);
+			$this->db->delete("news_category");
+			redirect(site_url()."/pro2?id=".$pid);
+		}
+		
+	}
+	
+	function newsList(){
+		//必要参数
+		$id=$this->input->get("id");
+		$act=$this->input->get("act");
+		$pid=$this->input->get("pid");
+		$sql="select * from news where categoryid=".$id;
+        
+		$this->load->view("pro2/t_pro2_newsList.php",array("row"=>$this->db->query($sql),'ID'=>$id));		
+	}
+	
+	function newsEdit(){
+		$id=$this->input->get("id");
+		$act=$this->input->get("act");
+		$pid=$this->input->get("pid");
+		$sql="select * from news where id=".$id;
+		$this->load->view("pro2/t_pro2_newsEdit.php",array('row'=>$this->db->query($sql)->row()));
+		
+	}
+	
+	function news_sql(){
+//		//必要参数
+		$id=$this->input->get("id");
+		$act=$this->input->get("act");
+		$pid=$this->input->get("pid");
+
+		$data=array(
+			'subTitle'=>$this->input->post('subTitle'),
+			'subject'=>$this->input->post('subject'),
+			'categoryId'=>$this->input->post('categoryId')
+		);
+		if($act=="list"){
+			
+		}
+		if($act=="edit"){
+			
+		}
+		if($act=="insert"){
+			$this->db->insert('news',$data);
+		}
+		if($act=="update"){
+			$this->db->where("ID",$id);
+			$this->db->update("news",$data);
+		}
+		if($act=="del"){
+			$this->db->where("ID",$id);
+			$this->db->update("news",$data);
+		}
+
+		redirect(site_url()."/pro2/newsList?id=".$pid);
 	}
 	
 	function sort(){
@@ -40,50 +140,8 @@ class pro2 extends CI_Controller{
 		}
 	}
 	
-	function cateEdit(){
-		//必要参数
-		$id=$this->input->get("id");
-		$act=$this->input->get("act");
-		$pid=$this->input->get("pid");
-		$sql="select * from news_category where id=".$id;
-		$this->load->view("pro2/t_pro2_cateEdit.php",array('row'=>$this->db->query($sql)->row()));
-	}
 
-	function cateEdit2(){
-		//必要参数
-		$id=$this->input->get("id");
-		$act=$this->input->get("act");
-		$pid=$this->input->get("pid");
-		$sql="select * from news_category where id=".$id;
-		$this->load->view("pro2/t_pro2_cateEdit2.php",array('row'=>$this->db->query($sql)->row()));
-	}
 	
-	function cate_sql(){
-		//必要参数
-		$id=$this->input->get("id");
-		$act=$this->input->get("act");
-		$pid=$this->input->get("pid");
-		
-		$data=array(
-			'category'=>$this->input->post('category'),
-			'parentid'=>$this->input->post('parentid'),
-			'template'=>$this->input->post('template'),
-			'type'=>$this->input->post('type')
-		);
-		
 
-		if($act=="insert"){
-			$this->db->insert('news_category',$data);	
-		}
-		if($act=="update"){
-			$this->db->where("ID",$id);
-			$this->db->update('news_category',$data);
-		}
-		if($act=="del"){
-			$this->db->where("ID",$id);
-			$this->db->delete("news_category");
-		}
-		redirect(site_url()."/pro2?id=".$pid);
-	}
 }
 ?>

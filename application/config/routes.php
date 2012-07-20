@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "listview";
+$route['default_controller'] = "pro2";
 $route['404_override'] = '';
 
 
