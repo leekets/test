@@ -135,4 +135,36 @@ function f_select(org_comments,s_num,f_chrome){
 		$(".f_btnNo"+(i+1)).show();
 	}	
 }
+function f_select2(org_comments,s_num,f_chrome){
+	var arrSelect=[];	//定义select数组；
+	for(var i=0, len=org_comments.length; i<len; i++){	//取出当前指针的值。（同时取出与当前指正重复的值。）
+		if(org_comments[i]['subTitle']!=comments[index]['subTitle']){
+			arrSelect.push(org_comments[i]);
+		}	
+	}
+	arrSelect=randomOrder(arrSelect);	//乱序数组
+	
+	
+	var arrSelect2 = [];	//定时数组2
+	
+	//select num
+	var s_num=s_num-2;
+	for(i=0;i<=s_num;i++){	//获得目标数组-1的新数组
+		arrSelect2.push(arrSelect[i]);
+	}
+	arrSelect2.push(comments[index]);	//新数组添加当前指针的值。
+	arrSelect = randomOrder(arrSelect2);	//乱序数组。
+	
+	$(".f_btnSelect").hide();
+	for(i=0;i<=s_num+1;i++){
+		$(".f_btnNo"+(i+1)).html(arrSelect[i].subTitle); //赋值
+		$(".f_btnNo"+(i+1)).attr("f_a",arrSelect[i].subject);
+		$(".f_btnNo"+(i+1)).attr("f_id",arrSelect[i].id);
+		$(".f_btnNo" + (i + 1)).prepend("<span class=\"label label-warning none\">"+arrSelect[i].subject+"</span>&nbsp;");
+		if(f_chrome==1){
+			$(".f_btnNo" + (i + 1)).prepend("<span class='label' style='width:130px !important;'>[" + $(".f_btnNo" + (i + 1)).attr("id") + "]</span>&nbsp;");
+		}
+		$(".f_btnNo"+(i+1)).show();
+	}	
+}
 

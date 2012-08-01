@@ -14,6 +14,10 @@ class Js extends CI_Controller{
 	function testArr(){
 		$this->load->view("js/t_js_testArr");
 	}
+
+	function testCn(){
+		$this->load->view("js/t_js_testCn");
+	}
 	
 	function testVoice(){
 		$this->load->view("js/t_js_testVoice");

@@ -43,7 +43,13 @@ class pro2 extends CI_Controller{
 			$ID=$id;
 			if($ID==0){ $type="分类";}else{$type="列表页";}
 			$sql="select * from news_category where parentid=$ID order by sortnum";
-			$this->load->view("pro2/t_pro2_index.php",array('row'=>$this->db->query($sql),'ID'=>$ID,'type'=>$type));
+			if($ID!=0){
+				$sqlCate="select * from news_category where id=$ID";
+				$this->load->view("pro2/t_pro2_index.php",array('row'=>$this->db->query($sql),'rowCate'=>$this->db->query($sqlCate)->row(),'ID'=>$ID,'type'=>$type));
+			}else{
+				$this->load->view("pro2/t_pro2_index.php",array('row'=>$this->db->query($sql),'ID'=>$ID,'type'=>$type));
+			}
+			
 		}
 		if($act=="edit"){
 			$sql="select * from news_category where id=".$id;
