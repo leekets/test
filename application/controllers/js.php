@@ -39,4 +39,7 @@ class Js extends CI_Controller{
 	function common(){
 		$this->load->view('js/t_js_common');
 	}
+	function testCnPhp(){
+		$this->load->view("js/t_js_testCnPhp");
+	}
 }

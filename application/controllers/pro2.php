@@ -145,9 +145,62 @@ class pro2 extends CI_Controller{
 			redirect(site_url()."/pro2?id=".$ID);
 		}
 	}
+	function hotSet(){
+		$ID=$this->input->get("id");
+		$arr=$this->input->get("error");
+		if($arr!=""){
+			$arr=explode(",",$arr);
+			for($i=0; $i<count($arr); ++$i){
+				$this->db->where("id",$arr[$i]);
+				$this->db->update("news",array("hot"=>"1"));
+			}
+		}
+		redirect(site_url("/pro2/newsList/?id=$ID"));
+		
+	}
 	
-
+	function hotReset(){
+		$ID=$this->input->get("id");
+		$sql="select * from news where categoryid=$ID";
+		$query=$this->db->query($sql);
+		$arr="";
+		foreach($query->result() as $row){
+			if($arr==""){
+				$arr=$row->ID;
+			}else{
+				$arr=$arr.",".$row->ID;
+			}
+		}
+		$arr=explode(",",$arr);
+		if(count($arr)>0){
+			for($i=0; $i<count($arr); ++$i){
+				$this->db->where("id",$arr[$i]);
+				//echo $i;
+				$this->db->update("news",array("hot"=>""));
+			}
+		}
+		redirect(site_url("/pro2/newsList/?id=$ID"));
+	}
 	
-
+	function out(){
+		$ID=$this->input->get("id");
+		$act=$this->input->get("act");
+		$sql="select * from news where categoryid=$ID and hot=1";
+		$query=$this->db->query($sql);
+		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+		foreach($query->result() as $row){
+			if($act=="lrc"){
+				echo ($row->subTitle." | ".$row->subject."<br>");
+			}
+			if($act=="txt"){
+				echo ($row->subTitle."<br>");
+			}
+		}
+		
+	}
+	
+	function testCn(){
+		$this->load->view("pro2/t_pro2_testCn.php");
+	}
 }
 ?>

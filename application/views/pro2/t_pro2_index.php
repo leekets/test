@@ -22,7 +22,6 @@
                 <th>Sort</th>
             </tr>
         </thead>
-        
         <tbody data-bind="template: 'cateList'">
             <?php echo '<script type="text/x-jquery-tmpl" id="cateList">' ?>
             {{each cateList}}
@@ -32,9 +31,13 @@
                 <td>
                     <a href="<?php echo site_url() ?>/pro2/cateEdit?id=${ID}" title="Edit"><i class="icon-edit"></i></a> 
                     <a href="javascript:void(0)" url="<?php echo site_url() ?>/pro2/cate_sql?id=${ID}&act=del&pid=<?php echo $ID;?>" class="f_del"><i class="icon-remove"></i></a>
+                    <a href="<?php echo site_url("/pro2/testCn?id=")?>${ID}" title="Edit"><i class="icon-pencil"></i></a>
                 </td>
-                <td>TTS</td>
-                <td>List</td>
+                <td>
+                	<a href="<?php echo site_url()?>/pro2/out?id=${ID}&act=lrc" target="_blank">Lrc</a>
+                	<a href="<?php echo site_url()?>/pro2/out?id=${ID}&act=txt" target="_blank">Txt</a>
+                </td>
+                <td>TTS | List</td>
                 <td>Sort</td>
             </tr>
             {{/each}} <?php echo '</script>' ?>
@@ -50,27 +53,8 @@
     </div>
 </div>
 <?php include ("sections/s_pro2_footer.php")?>
-<script type='text/javascript'>//<![CDATA[ 				  
-    var viewModel = {
-        cateList: ko.observableArray(<?php echo JSON_encode($row->result());?>)
-    }
-    ko.applyBindings(viewModel);
-
-	$(function(){
-		$(".f_index_url").click(function(){
-			n_type=$(this).attr("data-type");
-			n_id=$(this).attr("data-id");
-			n_site=$(this).attr("data-site");
-			if(n_type=="分类"){
-				window.location=n_site+"/pro2/cate_sql/?id="+n_id+"&act=list";
-			}
-			if(n_type=="列表页"){
-			   window.location=n_site+"/pro2/newsList/?id="+n_id;
-			}
-		});
-		
-
-	});
+<script type='text/javascript'>
+	<?php include ("js/js_pro2_index_js.js")?>
 </script>
 </body>
 </html>

@@ -77,7 +77,8 @@
 				}
 			}else{
 				t2=new Date().getTime()-t1;
-				alert(MillisecondToDate(t2));	
+				alert(MillisecondToDate(t2));
+				//alert(jumpUrl);
 				window.location=jumpUrl+"&title="+MillisecondToDate(t2)+"&error="+getError;
 			}
 		}
