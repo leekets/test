@@ -1,7 +1,23 @@
 	<?php $a="1"; if($a=="123"){?> <script><!-- <?php }?>
-	<?php include("section/v3/s_js_v3_select_controllers.js"); ?>
+	var dNum= 4000;	
+	var testSize=15;
+	var c_audio=1;
+	var c_jump=0;
+	var c_select=5;
 
 $(function() {
+	audio=document.getElementById('player') ;//初始化音频路径
+	audio.addEventListener('ended', function () {  
+  		audio.pause();
+        audio.currectTime = 0;
+  		$("a.f_btn_audio").click();
+  	}, false);
+  	audio.addEventListener('error', function(){
+		//alert("error");
+		act();
+  	}, false);
+	audio.defaultPlaybackRate=2;
+//	alert("2");
 	<?php include("section/v3/s_js_v3_select_head.js"); ?>
 	<?php include("section/v3/s_js_v3_select_basic.js"); ?>
 	
@@ -37,6 +53,7 @@ $(function() {
 			$(".q_en").html(q_en);//问题区赋值
 			$(".f_subject").html(comments[index]['subject']);//问题区赋值
 			$(".f_subTitle").html(comments[index]['subTitle']);//答案区赋值
+			$(".f_text_slpit .h").html(sliptEn(comments[index]['subTitle']));
 			$(".sen .en").html(comments[index]['en']);//问题区赋值
 			$(".sen .cn").html(comments[index]['cn']);//答案区赋值
 			$(".btnQ").html(btnQ);
@@ -48,32 +65,12 @@ $(function() {
 				s_audio=comments[index]['subTitle']+".mp3";
 				$("audio").attr({"src": ""});
 				$("audio").attr({"src": "../audio/"+s_audio});
-				audio=document.getElementById('player') ;//初始化音频路径
-				audio1=document.getElementById('player1') ;//初始化音频路径
-				audio2=document.getElementById('player2') ;//初始化音频路径
-				audio3=document.getElementById('player3') ;//初始化音频路径
-				audio4=document.getElementById('player4') ;//初始化音频路径
+				//audio.load();
 //				audio.play();
-				audio.load();
-				audio.play();
-				audio1.load();
-				audio2.load();
-				audio3.load();
-				audio4.load();
-				audio.defaultPlaybackRate=2;
-				audio1.defaultPlaybackRate=2;
-				audio2.defaultPlaybackRate=2;
-				audio3.defaultPlaybackRate=2;
-				audio4.defaultPlaybackRate=2;
-//				var times;
-//				audio.addEventListener("canplaythrough", function () {
-//
-//					times=audio.duration;
-//
-//					}, false);
-//				alert(times);
+				setTimeout("audio.play();", 1500);
+				//setTimeout("alert(audio.currentSrc);", 1000);
+//				alert(audio.currentSrc);
 				
-				playPure(0);
 			}			
 //			$("textarea.b")[0].focus();			//输入框焦点
 			
@@ -91,7 +88,6 @@ $(function() {
 						}else{
 							arrErrors=arrErrors+","+strID;
 						}
-						
 					}
 	//				alert(arrErrors);
 					window.location="testArr.html?id="+pid+"&arr="+arrErrors;
@@ -138,55 +134,10 @@ $(function() {
 	        };
 	});
 	
-	$("a.btn2").click(function() {
-		audio.pause();
-		audio1.pause();
-		audio2.pause();
-		audio3.pause();
-		$("a.audio1").attr("times","0");
-		$("a.audio2").attr("times","0");
-		$("a.audio3").attr("times","0");
-		
-		$("a.audio1").html("0");
-		$("a.audio2").html("0");
-		$("a.audio3").html("0");
-		
+	$("a.btn2").click(function() {		
 		act()		
 	});
-	$("a.audio1").click(function(){
-		times=$(this).attr("times");
-		if(times=="01"){
-			//alert("1-1");
-			playPure(1);
-		}
-	});
-	$("a.audio2").click(function(){
-		times=$(this).attr("times");
-		if(times=="01"){
-			$("a.audio4").attr("times","0");
-			$("a.audio4").html("0");
-			//alert("2");
-//			setTimeout("playPure(2);", 0);
-			playPure(2);
-		}
-	});
-	$("a.audio3").click(function(){
-		times=$(this).attr("times");
-		if(times=="01"){
-			//alert("3");
-//			setTimeout("playPure(3);", 0);
-			playPure(3);
-		}
-	});
-	$("a.audio4").click(function(){
-		times=$(this).attr("times");
-		if(times=="01"){
-			//alert("4");
-//			setTimeout("$('.btn2').click();", 0);
-			$('.btn2').click();
-			
-		}
-	});
+
 	$("a.f_btn_click").click(function(){
 		$(this).hide();
 	});
@@ -198,58 +149,33 @@ $(function() {
 			act3()
         };
     });
-	<?php include("section/v3/s_js_v3_common_function.js"); ?>
-
-
-})
-
-	function playPure(numS) {  
-		//var audio = document.createElement("audio");  
-		var index = 0;
-		alert(index);
-		audio.play();
-	  	//audio.src = "piano/3C.mp3";  
-	  	audio.addEventListener('ended', function () {  
-	  	// Wait 500 milliseconds before next loop 
-	  	if(index<2){ 
-	  		setTimeout(function () {
-		  		if(index<2){ 
-			  		audio.play(); 
-			  		index++;
-			  	}
-			  
-		  	}, 500); 
-	  	} 
-		if(index==2){
-	  		audio.pause();
-	  		audio.currectTime = 0;
-	  		index=0;
-	  		$('.btn2').click();
-	  		return;
-		}
-	  	}, false);
-	  	audio.removeEventListener('ended', function () {  
-		  	// Wait 500 milliseconds before next loop 
-		  	if(index<2){ 
-		  		setTimeout(function () {
-			  		if(index<2){ 
-				  		audio.play(); 
-				  		index++;
-				  	}
-				  
-			  	}, 500); 
-		  	} 
-			if(index==2){
-		  		audio.pause();
-		  		audio.currectTime = 0;
-		  		index=0;
-		  		$('.btn2').click();
-		  		return;
+	//==========================================================================================================
+    $("a.f_btn_audio").click(function(){
+		times=$(this).attr("times");
+		
+		if(times<4){
+			
+			//alert(times);
+			
+			
+			if(times==1){
+				$(".f_li_subtitle").show();
 			}
-		  	}, false);
-	  	return;  
-	  	   
-	}
+			times++;
+			$("a.f_btn_audio").attr("times",times);
+			$("a.f_btn_audio").html(times);
+			audio.play();
+		}
+		if(times==4){
+			$("a.f_btn_audio").attr("times","1");
+			$("a.f_btn_audio").html("1");
+			audio.pause();
+	        audio.currectTime = 0;
+			act();
+		}
+    });
+	<?php include("section/v3/s_js_v3_common_function.js"); ?>
+})
 
 
 <?php if($a=="123"){?>--></script><?php }?>

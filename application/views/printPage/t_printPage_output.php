@@ -8,10 +8,10 @@
 <?php 
 	$page=$this->input->get("page");	
 	$ID=$this->input->get("id");
-	if($page=="jsCommon" || $page=="index" || $page=="jump" || $page=="testjs" || $page=="testSelect" || $page=="testArr"){
+	if($page=="jsCommon" || $page=="index" || $page=="jump" || $page=="testjs" || $page=="testSelect" || $page=="testArr"  || $page=="testAudio"){
 		printPage($tree,$page,"");
 	}
-	if($page="category"){
+	if($page=="category"){
 		printPage($tree,"news","");
 		printPage($tree,"cate","");
 	}
@@ -44,6 +44,10 @@
 		if($page=="testArr"){
 			php2html(site_url()."/js/testArr",$tree."js/test_arr.txt","/www/log/log.txt");
 			echoList("test_arr.txt");
+		}
+		if($page=="testAudio"){
+			php2html(site_url()."/js/testAudio",$tree."js/test_audio.txt","/www/log/log.txt");
+			echoList("test_audio.txt");			
 		}
 	}
 	function echoList($var){

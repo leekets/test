@@ -55,7 +55,7 @@
 		window.location=$(this).attr("_href")+"&id="+$(this).attr("id");
 	});
 	
-	$("title").html(cateJSON[usual_search(cateJSON,x)].category);	//change title
+	$("title").html(cateJSON[usual_search(cateJSON,pid)].category);	//change title
 	
 	var arrPhrase=[1101,1102,1103,1104,1105,1106,1107,1108,1109,1110,1122,1123,1124,1125,1126,1127,1128,1129,1130,1131];
 	for(var i=0; i<arrPhrase.length;i++){

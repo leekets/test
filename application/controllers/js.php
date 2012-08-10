@@ -19,7 +19,10 @@ class Js extends CI_Controller{
 		$this->load->view("js/t_js_testCn");
 	}
 	function testAudio(){
-		$this->load->view("js/t_js_audio");
+		$this->load->view("js/t_js_audio2");
+	}
+	function testAudio2(){
+		$this->load->view("js/t_js_audio2");
 	}
 	
 	function testVoice(){

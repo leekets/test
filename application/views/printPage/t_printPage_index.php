@@ -19,6 +19,9 @@
                 <a href="<?=site_url()?>/printpage/output?page=testArr">testArr</a>
             </li>
             <li>
+            	<a href="<?php echo site_url("/printpage/output?page=testAudio")?>">testAudio</a>
+            </li>
+            <li>
             	<a href="<?php echo site_url("/printpage/output?page=jsCommon")?>" target="_blank">common.js</a>
             </li>
         </ul>

@@ -35,7 +35,7 @@ function act() {
 			$(".sen .cn").html(comments[index]['cn']);//答案区赋值
 			$(".btnQ").html(btnQ);
 			//$(".e_act1").show();				//显示：act1元素；
-			$(".f_li_subtitle").show();
+			$(".f_li_subject").show();
 			f_select(org_comments,c_select,f_chrome);
 			if(c_audio==1){
 				s_audio="";
@@ -48,7 +48,17 @@ function act() {
 				audio3=document.getElementById('player3') ;//初始化音频路径
 				audio4=document.getElementById('player4') ;//初始化音频路径
 //				audio.play();
-//				audio.load();
+				audio.load();
+				audio.play();
+				audio1.load();
+				audio2.load();
+				audio3.load();
+				audio4.load();
+				audio.defaultPlaybackRate=2;
+				audio1.defaultPlaybackRate=2;
+				audio2.defaultPlaybackRate=2;
+				audio3.defaultPlaybackRate=2;
+				audio4.defaultPlaybackRate=2;
 //				var times;
 //				audio.addEventListener("canplaythrough", function () {
 //
