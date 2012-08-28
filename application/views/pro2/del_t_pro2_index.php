@@ -37,7 +37,7 @@
                 	<a href="<?php echo site_url()?>/pro2/out?id=${ID}&act=lrc" target="_blank">Lrc</a>
                 	<a href="<?php echo site_url()?>/pro2/out?id=${ID}&act=txt" target="_blank">Txt</a>
                 </td>
-                <td>TTS | List</td>
+                <td><a data-bind="attr: {href: '<?php echo site_url("/phptts/?id=")?>'+ID+'&arr='}">TTS</a> | List</td>
                 <td>Sort</td>
             </tr>
             {{/each}} <?php echo '</script>' ?>
@@ -56,5 +56,6 @@
 <script type='text/javascript'>
 	<?php include ("js/js_pro2_index_js.js")?>
 </script>
+
 </body>
 </html>

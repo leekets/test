@@ -16,8 +16,8 @@
 //				//alert (s_audio);
 //				$("audio").attr({"src": "../audio/"+s_audio});
 //				play(0,1);
-				eNum+=1
 				errors.push(comments[index-1]);
+				eNum=errors.length;
 	//			console.log(errors);
 	//			if(index_==""){index_=comments[index-1]['id']}else{index_+=","+comments[index-1]['id']};
 				$("span.sp3").html(eNum);

@@ -12,11 +12,15 @@
 				//act3();
 	        	$(this).children(".label").show();
 	        	errors.push(commentsAll[usual_search2(commentsAll,$(this).attr("f_id"))]);
-				s_audio=commentsAll[usual_search2(commentsAll,$(this).attr("f_id"))]['subTitle']+".mp3";
-				$("audio").attr({"src": "../audio/"+s_audio});
-				play(0,1);
-				eNum+=1
+	        	if(c_audio==1){
+					s_audio=commentsAll[usual_search2(commentsAll,$(this).attr("f_id"))]['subTitle']+".mp3";
+					$("audio").attr({"src": "../audio/"+s_audio});
+					play(0,1);
+	        	}
+				//eNum+=1;
+				
 				errors.push(comments[index-1]);
+				eNum=errors.length;
 	//			console.log(errors);
 	//			if(index_==""){index_=comments[index-1]['id']}else{index_+=","+comments[index-1]['id']};
 				$("span.sp3").html(eNum);
@@ -26,9 +30,9 @@
 	$("a.btn2").click(function() {
 		act()		
 	});
-	$("a.audio1").click(function()){
+	$("a.audio1").click(function(){
 		times=$(this).times()
-	}
+	});
 
     $("a.btn3").click(function() {
 		
