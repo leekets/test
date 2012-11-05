@@ -75,7 +75,7 @@ function act() {
 			}else{
 				t2=new Date().getTime()-t1;
 				alert(MillisecondToDate(t2));	
-				window.location=jumpUrl+"&title="+MillisecondToDate(t2)+"&error="+getError;
+				window.location=jumpUrl+"&title="+MillisecondToDate(t2)+"&error="+getError+"&page="+c_page;
 			}
 		}
 

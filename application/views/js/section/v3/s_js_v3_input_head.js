@@ -24,7 +24,7 @@
 			}	
 		}
 	}
-	
+	$("title").html(cateJSON[usual_search(cateJSON,pid)].category);	//change title
 
 
 	

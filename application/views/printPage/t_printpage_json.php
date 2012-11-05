@@ -5,7 +5,7 @@
 		$query=$this->db->query($sql);
 	}
 	if($act=="news"){
-		$sql="select id,categoryId,subject,subTitle from news order by categoryid asc, sortnum asc, id asc";
+		$sql="select id,categoryId,subject,subTitle from news order by categoryId asc, sortnum asc, ID asc";
 		$query=$this->db->query($sql);	
 	}
 	if($act=="sen"){

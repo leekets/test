@@ -1,14 +1,15 @@
-<?php echo meta("content-type", "text/html; charset=utf-8;",'equiv')?>
+<?php /* echo meta("content-type", "text/html; charset=utf-8;",'equiv')?>
 <title>Import Page</title>
 <style>
 	.echoList{ float:left; margin-left:10px; }
 </style>
+<?php */ ?>
 <?php include ("sections/s_php2html.php")?>
 <?php $tree="/wwwroot/output/test/"?>
 <?php 
 	$page=$this->input->get("page");	
 	$ID=$this->input->get("id");
-	if($page=="jsCommon" || $page=="index" || $page=="jump" || $page=="testjs" || $page=="testSelect" || $page=="testArr"  || $page=="testAudio"){
+	if($page=="jsCommon" || $page=="index" || $page=="jump" || $page=="testjs" || $page=="testSelect" || $page=="testArr"  || $page=="testAudio" || $page=="testCn"){
 		printPage($tree,$page,"");
 	}
 	if($page=="category"){
@@ -41,6 +42,10 @@
 			php2html(site_url()."/js/testSelect",$tree."js/test_select.txt","/www/log/log.txt");
 			echoList("test_select.txt");
 		}
+		if($page=="testCn"){
+			php2html(site_url()."/js/testCn",$tree."js/test_cn.txt","/www/log/log.txt");
+			echoList("test_cn.txt");
+		}
 		if($page=="testArr"){
 			php2html(site_url()."/js/testArr",$tree."js/test_arr.txt","/www/log/log.txt");
 			echoList("test_arr.txt");
@@ -51,7 +56,8 @@
 		}
 	}
 	function echoList($var){
-		echo "<div class='echoList'>$var</div>";
+		//echo "<div class='echoList'>$var</div>";
+		echo $var;
 	}
 
 	

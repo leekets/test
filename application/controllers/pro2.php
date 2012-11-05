@@ -45,11 +45,10 @@ class pro2 extends CI_Controller{
 			$sql="select * from news_category where parentid=$ID order by sortnum";
 			if($ID!=0){
 				$sqlCate="select * from news_category where id=$ID";
-				$this->load->view("pro2/t_pro2_index.php",array('row'=>$this->db->query($sql),'rowCate'=>$this->db->query($sqlCate)->row(),'ID'=>$ID,'type'=>$type));
+				$this->load->view("pro2/t_pro2_index2.php",array('row'=>$this->db->query($sql),'rowCate'=>$this->db->query($sqlCate)->row(),'ID'=>$ID,'type'=>$type));
 			}else{
-				$this->load->view("pro2/t_pro2_index.php",array('row'=>$this->db->query($sql),'ID'=>$ID,'type'=>$type));
+				$this->load->view("pro2/t_pro2_index2.php",array('row'=>$this->db->query($sql),'ID'=>$ID,'type'=>$type));
 			}
-			
 		}
 		if($act=="edit"){
 			$sql="select * from news_category where id=".$id;
@@ -68,6 +67,23 @@ class pro2 extends CI_Controller{
 			$this->db->where("ID",$id);
 			$this->db->delete("news_category");
 			redirect(site_url()."/pro2?id=".$pid);
+		}
+		if($act=="autoCate"){
+			$category=$this->input->get("category");
+			$num=$this->input->get("num");
+			for($i=1;$i<$num+1;$i++){
+				$display="";
+				if($act=="autoCate"){
+					$data=array(
+						'category'=>$category."-".$i,
+						'parentId'=>$id,
+						'sortNum'=>$i,
+						'type'=>"列表页"
+					);
+					$this->db->insert("news_category",$data);
+				}
+			}
+			redirect(site_url()."/pro2/cate_sql/?act=list&id=".$id);
 		}
 		
 	}

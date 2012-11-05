@@ -28,27 +28,30 @@ function act() {
 				q_en=q;
 			}
 			btnQ="Submit";
-			s_audio="";
-			s_audio=comments[index]['subTitle']+".mp3";
-			$("audio").attr({"src": ""});
-			$("audio").attr({"src": "../audio/"+s_audio});
-			audio=document.getElementById('player') //初始化音频路径
+			if(c_audio==1){
+				s_audio="";
+				s_audio=comments[index]['subTitle']+".mp3";
+				$("audio").attr({"src": ""});
+				$("audio").attr({"src": "../audio/"+s_audio});
+				audio=document.getElementById('player') //初始化音频路径
+//				play(0,1);
+			}	
 			$(".q_en").html(q_en);//问题区赋值
 			$(".q").html(comments[index]['subject']);//问题区赋值
+			$("title").html(cateJSON[usual_search(cateJSON,pid)].category+'-'+comments[index]['subject']);	//change title
 			$(".a .a").html(comments[index]['subTitle']);//答案区赋值
 			$(".sen .en").html(comments[index]['en']);//问题区赋值
 			$(".sen .cn").html(comments[index]['cn']);//答案区赋值
 			$(".btnQ").html(btnQ);
 			$(".e_act1").show();				//显示：act1元素；
 
-//			play3(1);
 			$("textarea.b")[0].focus();			//输入框焦点
 			
             index++;							//指针递进
         }
 		else{
 			if(errors.length > 0){				//数组【错误列表】不为空
-				comments = errors;				//题库赋值错误列表
+				comments = randomOrder(errors);				//题库赋值错误列表
 				errors = [];					//清空：错误列表；
 				index = 0;						//初始化：指针
 				eNum = 0;						//初始化：错误计数

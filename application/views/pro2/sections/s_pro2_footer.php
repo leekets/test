@@ -1,5 +1,4 @@
 <script src="<?php echo base_url();?>/js/jquery.js"></script>
-<script src="<?php echo base_url("3rd/bootstrap");?>/js/google-code-prettify/prettify.js"></script>
 <script src="<?php echo base_url("3rd/bootstrap");?>/js/bootstrap-transition.js"></script>
 <script src="<?php echo base_url("3rd/bootstrap");?>/js/bootstrap-alert.js"></script>
 <script src="<?php echo base_url("3rd/bootstrap");?>/js/bootstrap-modal.js"></script>

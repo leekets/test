@@ -1,4 +1,4 @@
-var viewModel = {
+	var viewModel = {
         cateList: ko.observableArray(<?php echo JSON_encode($row->result());?>)
     }
     ko.applyBindings(viewModel);

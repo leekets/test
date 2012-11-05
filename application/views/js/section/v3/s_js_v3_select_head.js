@@ -1,5 +1,5 @@
 
-	if (window.navigator.userAgent.indexOf('Chrome') > -1) {		//判断是否为chrome浏览器；
+	if (window.navigator.userAgent.indexOf('Chrome') > -1 || window.navigator.userAgent.indexOf('Firefox') > -1) {		//判断是否为chrome浏览器；
 		var f_chrome=1;
 	    //alert('Chrome!');
 	} else {
