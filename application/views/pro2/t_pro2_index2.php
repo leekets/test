@@ -18,6 +18,7 @@
         <thead>
             <tr>
                 <th></th>
+                <td>ID</td>
                 <th>Category</th>
                 <th>Action</th>
                 <th>List</th>
@@ -27,6 +28,7 @@
         <tbody data-bind="foreach:cateList" >
             <tr>
                 <td><input type="checkbox"></td>
+				<td data-bind="text: ID"></td>
                 <td><a
                 		data-bind="
                 		attr: {
