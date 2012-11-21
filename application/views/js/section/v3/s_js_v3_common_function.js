@@ -15,12 +15,26 @@ function Arrsplit(s) {
     $(".f_slipt").hide();
 }
 
+//function sen1(a) {
+//    for (x in senJSON) {
+//        if (senJSON[x].en != null) {
+//            if (a.toLowerCase().indexOf(senJSON[x].en.toLowerCase()) >= 0) {
+//            	$(".f_en").html(a.replace(senJSON[x].en,'<span class="font_red">'+senJSON[x].en+'</span>'));
+//                $(".f_cn").html(senJSON[x].cn);
+//                break;
+//            }
+//        }
+//    }
+//}
 function sen1(a) {
     for (x in senJSON) {
         if (senJSON[x].en != null) {
-            if (a.toLowerCase().indexOf(senJSON[x].en.toLowerCase()) >= 0) {
-            	$(".f_en").html(a.replace(senJSON[x].en,'<span class="font_red">'+senJSON[x].en+'</span>'));
-                $(".f_cn").html(senJSON[x].cn);
+            //if (a.toLowerCase().indexOf(senJSON[x].en.toLowerCase()) >= 0) {
+			if (senJSON[x].en.toLowerCase().indexOf(a.toLowerCase()) >= 0) {
+				//alert(senJSON[x].en);
+				$(".f_en").html(senJSON[x].en.replace(a,'<span class="font_red">'+a+'</span>'));
+            	//$(".f_en").html(a.replace(senJSON[x].en,'<span class="font_red">'+senJSON[x].en+'</span>'));
+                //$(".f_cn").html(senJSON[x].cn);
                 break;
             }
         }
